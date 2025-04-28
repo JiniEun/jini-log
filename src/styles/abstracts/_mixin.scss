@@ -1,0 +1,38 @@
+@use "./_variables.scss" as *;
+
+// 360 ~
+@mixin mobile {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+// 674 ~
+@mixin tablet {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+// ~ 1024
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$breakpoint-xlg}) {
+    @content;
+  }
+}
+
+@mixin title-24-700 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@mixin title-20-700 {
+  font-size: 20px;
+  font-weight: 700;
+}
