@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+.code-block-wrapper {
+  background: #011627;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  margin: 1rem 0;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  .filename {
+    background: #011221;
+    color: #82aaff;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    padding: 12px 16px 12px 76px;
+    border-bottom: 1px solid #1d3b53;
+  }
+
+  .window-bar {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    display: flex;
+    gap: 8px;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+      &.red {
+        background: #ff5f56;
+      }
+
+      &.yellow {
+        background: #ffbd2e;
+      }
+
+      &.green {
+        background: #27c93f;
+      }
+    }
+  }
+
+  .code {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: #d6deeb;
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+
+    code {
+      display: block;
+    }
+  }
+
+}
+
+

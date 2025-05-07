@@ -1,0 +1,65 @@
+.skill-container {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .main-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color-blue;
+    margin-bottom: 1rem;
+  }
+
+  .section-summary {
+    padding: 0 1rem 2rem;
+
+    li {
+      list-style: none;
+      font-size: 1.2rem;
+      color: #444;
+      margin: 0.5rem 0;
+      line-height: 1.7;
+      word-wrap: break-word;
+
+      &:before {
+        content: '•';
+        margin-right: 0.5rem;
+        color: #666;
+      }
+    }
+  }
+
+  .skill-section {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #ddd;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    .section-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+      width: 25%;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding-left: 1rem;
+      width: 75%;
+
+      li {
+        list-style: none;
+        font-size: 1.1rem;
+        &:before {
+          content: '•';
+          margin-right: 0.5rem;
+          color: #666;
+        }
+      }
+    }
+  }
+}

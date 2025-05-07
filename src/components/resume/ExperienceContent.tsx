@@ -1,0 +1,46 @@
+import styles from './ExperienceContent.module.scss';
+import classNames from 'classnames/bind';
+import { Experience } from '@/payload/types';
+
+const cx = classNames.bind(styles);
+
+const ExperienceContent = ({ experiences }: { experiences: Experience[] }) => {
+  return (
+      <div className={cx('experience-container')}>
+        <h2 className={cx('main-title')}>Experience</h2>
+        {experiences.map((exp, idx) => (
+            <div key={idx} className={cx('experience-item')}>
+              <div className={cx('experience-header')}>
+                <h3 className={cx('company')}>{exp.company}</h3>
+                <p className={cx('position')}>{exp.position}</p>
+                {exp.location && <p className={cx('location')}>{exp.location}</p>}
+                <p className={cx('company-summary')}>{exp.companySummary}</p>
+              </div>
+
+              <div className={cx('project-list')}>
+                {exp.projects.map((proj, pIdx) => (
+                    <div key={pIdx} className={cx('project-item')}>
+                      <h4 className={cx('project-title')}>{proj.title}</h4>
+                      <p className={cx('project-date')}>
+                        {proj.startDate} ~ {proj.endDate ?? '진행 중'}
+                      </p>
+                      <ul className={cx('project-description')}>
+                        {proj.description.map((desc, dIdx) => (
+                            <li key={dIdx}>{desc}</li>
+                        ))}
+                      </ul>
+                      {proj.techStack && proj.techStack.length > 0 && (
+                          <div className={cx('tech-stack')}>
+                            <span>기술 스택:</span> {proj.techStack.join(', ')}
+                          </div>
+                      )}
+                    </div>
+                ))}
+              </div>
+            </div>
+        ))}
+      </div>
+  );
+};
+
+export default ExperienceContent;

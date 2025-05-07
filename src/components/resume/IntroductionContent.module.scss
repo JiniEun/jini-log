@@ -1,0 +1,54 @@
+.introduction-container {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .main-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color-blue;
+    margin-bottom: 1rem;
+    width: 20%;
+  }
+
+  .description {
+    width: 80%;
+
+    h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+      color: #666;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #444;
+      margin: 0.5rem 0;
+      line-height: 1.7;
+      word-wrap: break-word;
+    }
+
+    .highlight {
+      background-color: rgba(128, 196, 233, 0.2);
+      color: #333;
+      font-weight: 600;
+      padding: 0 0.2rem;
+      border-radius: 4px;
+    }
+  }
+}
+
+@include tablet {
+  .introduction-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

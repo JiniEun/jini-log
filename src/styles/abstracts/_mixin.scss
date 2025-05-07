@@ -1,32 +1,34 @@
 @use "./_variables.scss" as *;
 
-// 360 ~
+// ~ 359px (mobile)
 @mixin mobile {
-  @media (min-width: #{$breakpoint-sm}) {
+  @media (max-width: #{$breakpoint-sm - 1}) {
     @content;
   }
 }
 
-// 674 ~
+// ~ 673px (tablet)
 @mixin tablet {
-  @media (min-width: #{$breakpoint-md}) {
+  @media (max-width: #{$breakpoint-md - 1}) {
     @content;
   }
 }
 
-// ~ 1024
+// ~ 1023px (desktop)
 @mixin desktop {
-  @media (min-width: #{$breakpoint-lg}) {
+  @media (max-width: #{$breakpoint-lg - 1}) {
     @content;
   }
 }
 
+// ~ 그 이상 (large desktop은 max-width 필요 없다면 생략 가능)
 @mixin large-desktop {
-  @media (min-width: #{$breakpoint-xlg}) {
+  @media (max-width: #{$breakpoint-xlg - 1}) {
     @content;
   }
 }
 
+// 타이틀 텍스트 믹스인
 @mixin title-24-700 {
   font-size: 24px;
   font-weight: 700;

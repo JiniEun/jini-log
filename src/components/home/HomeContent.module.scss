@@ -1,10 +1,33 @@
 // HomeContent.module.scss
 .container {
-  padding: 44px 0;
+  padding: 44px 44px;
   font-family: "Space Grotesk", sans-serif;
+  color: #80C4E9;
+
+  .profile {
+    display: flex;
+    margin: 12px;
+
+    .wrap-image {
+      width: 150px;
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
 
   .title {
-    color: black;
     font-size: 22px;
     font-weight: bold;
     font-optical-sizing: auto;
@@ -19,20 +42,5 @@
     font-size: 18px;
     font-optical-sizing: auto;
     font-style: normal;
-  }
-}
-
-@include tablet {
-  .container {
-    padding: 64px 0;
-
-    &-title {
-      font-size: 24px;
-      padding: 32px 0 36px;
-    }
-
-    &-description {
-      gap: 42px;
-    }
   }
 }

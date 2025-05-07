@@ -1,0 +1,117 @@
+.experience-container {
+  padding: 2rem 1rem;
+  display: flex;
+  //font-family: 'Space Grotesk', sans-serif;
+  color: #eaeaea;
+
+  .main-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color-blue;
+    margin-bottom: 1rem;
+    width: 20%;
+  }
+
+  .experience-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #444;
+
+    .experience-header {
+      margin-bottom: 1rem;
+
+      .company {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $primary-color-skyblue;
+        margin: 0;
+      }
+
+      .position {
+        font-size: 1rem;
+        color: #ccc;
+        margin: 0.25rem 0;
+      }
+
+      .location {
+        font-size: 0.95rem;
+        color: #aaa;
+        margin: 0.25rem 0;
+      }
+
+      .company-summary {
+        font-size: 1rem;
+        color: #bbb;
+        margin-top: 0.5rem;
+      }
+    }
+
+    .project-list {
+      .project-item {
+        margin-top: 1.5rem;
+
+        .project-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #f0f0f0;
+        }
+
+        .project-date {
+          font-size: 0.9rem;
+          color: #999;
+          margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+          list-style-type: disc;
+          padding-left: 1.2rem;
+          margin-bottom: 0.5rem;
+
+          li {
+            margin-bottom: 0.5rem;
+            color: #ddd;
+            line-height: 1.5;
+          }
+        }
+
+        .tech-stack {
+          font-size: 0.9rem;
+          color: #aaa;
+          margin-top: 0.25rem;
+
+          span {
+            font-weight: 500;
+            color: $primary-color-skyblue;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive (optional)
+@include tablet {
+  .experience-container {
+    padding: 1.5rem;
+
+    .main-title {
+      font-size: 1.6rem;
+    }
+
+    .experience-item {
+      .experience-header {
+        .company {
+          font-size: 1.3rem;
+        }
+      }
+
+      .project-list {
+        .project-item {
+          .project-title {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+}
