@@ -1,7 +1,7 @@
 // payload/skills.ts
 export const skills = {
   production: {
-    languages: ['Java', 'Python', 'JavaScript', 'Typescript', 'HTML/CSS'],
+    languages: ['Java', 'Python', 'JavaScript', 'Typescript'],
     frameworks: ['Spring Boot', 'Node.js', 'Vue.js'],
     tools: ['IntelliJ', 'VSCode', 'Git', 'Github', 'Gitlab', 'Jira', 'Confluence'],
     infrastructure: ['AWS', 'Docker', 'Kubernetes', 'nginx', 'Redis', 'MySQL', 'ElasticSearch'],

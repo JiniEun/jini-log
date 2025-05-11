@@ -43,6 +43,7 @@ export interface Experience {
   companySummary: string;
   position: string;
   description: string[];
+  duration: string;
   location?: string;
   projects: {
     title: string;

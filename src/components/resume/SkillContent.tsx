@@ -31,7 +31,7 @@ const SkillContent = ({skills}: { skills: Skills }) => {
         <SkillSection title="Languages" items={skills.production.languages}/>
         <SkillSection title="Frameworks & Libraries" items={skills.production.frameworks}/>
         <SkillSection title="Infrastructure & Databases" items={skills.production.infrastructure}/>
-        <SkillSection title="Tools & IDEs" items={skills.production.tools}/>
+        {/*<SkillSection title="Tools & IDEs" items={skills.production.tools}/>*/}
 
       </div>
   );
