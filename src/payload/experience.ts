@@ -29,16 +29,44 @@ export const experiences: Experience[] = [
         techStack: ['Node.js', 'Typescript', 'AWS Lambda', 'S3', 'CloudFront']
       },
       {
+        title: '버티컬 UI/서버 개선 및 신규 서비스 대응과 운영 관리',
+        startDate: '2023',
+        endDate: '2024',
+        summary: '버티컬 UI 및 서버 개선을 통해 신규 서비스에 대한 대응력을 높이고, 사용자 경험을 향상시켰습니다.',
+        description: [
+          '상품 상세 상단 UI 개편 및 버티컬 헤더 구조 설계',
+          '신규 버티컬(온앤더뷰티 / 온앤더패션) 연동 작업 및 서버 API 개선',
+          '온앤더뷰티 유입수: 주간 평균 대비 약 36% 증가 (8,938 vs 6,552)',
+          '온앤더패션 유입수: 패션위크 제외 시 주간 평균 대비 약 54% 증가 (15,004 vs 9,721)',
+          '헤더 로고 클릭수와 유입수 증감 간 추세 유사 → UI 개선의 영향 추정 가능'
+        ],
+        techStack: ['Java', 'Spring Boot', 'Mysql', 'AWS DynamoDB', 'Redis', 'Vue.js']
+      },
+      {
+        title: 'API 모니터링 고도화를 위한 AOP 기반 로깅 개선',
+        startDate: '2024.02',
+        endDate: '2024.03',
+        summary: 'AOP 기반 로깅 구조를 설계·구현하여, 운영 가시성을 높이고, 개발 효율성 향상에 기여했습니다.',
+        description: [
+          'AOP 기반 로깅 구조를 설계·구현하여, @Deprecated API 호출 기록을 자동 수집하도록 개선',
+          '기존에 관리되지 않던 API 사용 현황을 파악하고, 불필요 API 정리 기반 마련',
+          '와탭 기반 통계와 함께 운영 가시성을 높이고, 개발 효율성 향상에 기여',
+          '어노테이션 기반 설계로 향후 다양한 조건의 API 모니터링 확장 가능성 확보'
+        ],
+        techStack: ['Java', 'Spring Boot']
+      },
+      {
         title: '리뷰/QnA 안정화 및 검색 성능 개선',
         startDate: '2023.02',
         endDate: '2023.07',
+        summary: '리뷰 및 QnA 도메인 안정화 및 성능 개선을 통해 사용자 경험을 향상시켰습니다.',
         description: [
           'Elasticsearch 지연 현상 모니터링 및 로직 개선',
-          '→ 쿼리 개선 및 서비스 단 파티셔닝 적용 및 tyk 캐싱 처리 도입',
+          '→ 쿼리 개선 및 서비스 단 파티셔닝 적용 및 tyk 캐싱 처리 분석 및 반영',
           'heic 확장자 이미지 미노출 문제 해결 및 기등록 데이터 일괄 배치 처리',
           '스크린샷 등록 제어 기능 도입 → "상품과 무관한 사진" 신고 건 66% 감소'
         ],
-        techStack: ['Java', 'Spring Boot', 'Toss Payments']
+        techStack: ['Java', 'Spring Boot', 'Elasticsearch', 'Vue.js']
       }
     ]
   }
