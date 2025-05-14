@@ -9,7 +9,6 @@ export interface Profile {
     github: string;
     blog: string;
   };
-  summary: string;
   introduce: string[];
 }
 
@@ -29,6 +28,7 @@ export interface Skills {
 }
 
 export interface Introduction {
+  summary: string;
   description: {
     text: string;
     highlight?: string;

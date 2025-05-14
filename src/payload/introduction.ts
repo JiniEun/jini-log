@@ -1,6 +1,7 @@
 // payload/introduction.ts
 // payload/introduction.ts
 export const introduction = {
+  summary: '조직의 흐름을 빠르게 파악하고, 필요한 역할을 책임감 있게 수행하는 실무 중심형 개발자 김은진입니다.',
   description: [
     {
       text: '웹 백엔드 개발자로서 3년간 실제 서비스의 개발과 운영을 중심으로 경험을 쌓아왔습니다. 단순한 기능 구현을 넘어, 사용자의 입장에서 ',

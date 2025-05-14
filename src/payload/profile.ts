@@ -10,7 +10,6 @@ const profile = {
     github: 'https://github.com/JiniEun',
     blog: 'https://jules-jc.tistory.com/',
   },
-  summary: '밤샘 코딩을 즐기는 개발자',
   introduce: [
       '꾸준히 성장하는 개발자입니다. '
   ]

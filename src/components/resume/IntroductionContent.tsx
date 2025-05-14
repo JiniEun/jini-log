@@ -7,8 +7,13 @@ const cx = classNames.bind(style);
 const IntroductionContent = ({introduction}: { introduction: Introduction }) => {
   return (
       <div className={cx('introduction-container')}>
-        <h2 className={cx('main-title')}>Introduction</h2>
+        <div className={cx('main-title')}>
+          <p>Introduction</p>
+        </div>
         <div className={cx('description')}>
+          <div className={cx('summary')}>
+            <p>{introduction.summary}</p>
+          </div>
           {introduction.description.map((block, idx) => (
               <p key={idx}>
                 {block.text}
