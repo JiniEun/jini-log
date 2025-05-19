@@ -5,9 +5,28 @@ import {Experience} from '@/payload/types';
 const cx = classNames.bind(styles);
 
 const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
+  const experienceStartDate = "2022-12-19";
+  const start = new Date(experienceStartDate);
+  const now = new Date();
+
+  let careerInMonths =
+      (now.getFullYear() - start.getFullYear()) * 12 +
+      (now.getMonth() - start.getMonth());
+
+// 일까지 비교해서 더 정확하게 하고 싶다면:
+  if (now.getDate() < start.getDate()) {
+    // 이번 달이 아직 덜 찼으면 -1
+    careerInMonths--;
+  }
+  const years = Math.floor(careerInMonths / 12);
+  const months = careerInMonths % 12;
+
   return (
       <div className={cx('experience-container')}>
-        <h2 className={cx('main-title')}>Experience</h2>
+        <div className={cx('main-item')}>
+          <h2 className={cx('main-title')}>Experience</h2>
+          <span className={cx('tag')}>총 경력: {years}년 {months}개월</span>
+        </div>
         {experiences.map((exp, idx) => (
             <div key={idx} className={cx('experience-item')}>
               <div className={cx('experience-header')}>

@@ -69,5 +69,6 @@ export const experiences: Experience[] = [
         techStack: ['Java', 'Spring Boot', 'Elasticsearch', 'Vue.js']
       }
     ]
-  }
+  },
+
 ];

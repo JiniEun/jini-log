@@ -54,3 +54,10 @@ export interface Experience {
     techStack?: string[];
   }[];
 }
+
+export interface Education {
+  edu: string;
+  summary?: string;
+  duration: string;
+  location?: string;
+}
