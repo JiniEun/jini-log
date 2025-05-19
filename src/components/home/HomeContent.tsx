@@ -1,21 +1,4 @@
-import style from './HomeContent.module.scss';
-import classNames from 'classnames/bind';
-import CodeBlock from "@components/codeBlock/CodeBlock";
 import Tag from "@components/tag/Tag";
-
-const cx = classNames.bind(style);
-
-const codeSample = `
-function welcome() {
-  console.log("Welcome to Jini-log 🚀");
-}
-
-welcome();
-
-// Life.log("Curious about the world. Learning every day.");
-// Life.log("Building things that matter.");
-// Life.log("Better version of me.");
-`;
 
 const tags = [
   // 지속 가능한 개발과 성장에 관심이 많은
