@@ -2,6 +2,8 @@ import style from './ProfileContent.module.scss';
 import classNames from 'classnames/bind';
 import { Profile } from '@/payload/types';
 import { FaGithub, FaEnvelope, FaBlog } from 'react-icons/fa';
+import Image from 'next/image'
+import profilePic from '../../../public/home/profile.png';
 
 const cx = classNames.bind(style);
 
@@ -9,7 +11,7 @@ const ProfileContent = ({ profile }: { profile: Profile }) => {
   return (
       <div className={cx('profile-container')}>
         <div className={cx('profile-image')}>
-          <img src="/home/profile.png" alt="Profile" className={cx('profile-image')} />
+          <Image src={profilePic} alt="Profile" className={cx('profile-image')} />
         </div>
         <div className={cx('profile-description')}>
           <h1>{profile.name}</h1>
