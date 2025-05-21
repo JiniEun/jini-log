@@ -4,17 +4,22 @@
   flex-direction: column;
 
   .main-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: $primary-color-blue;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     width: 20%;
+
+    p {
+      line-height: 1.3;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $primary-color-blue;
+    }
   }
 
   .education-list {
     .education-item {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
       border-bottom: 1px solid #ddd;
       display: flex;
       flex-direction: row;
@@ -25,7 +30,7 @@
         font-size: 1.2rem;
         font-weight: 600;
         color: #666;
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
       }
 
       .education-description {
@@ -37,11 +42,11 @@
         .title {
           font-size: 1.2rem;
           font-weight: 600;
-          margin-bottom: 1rem;
           color: #444;
         }
 
         .summary {
+          margin-top: 1rem;
           font-size: 1rem;
           color: #666;
           margin-bottom: 0.5rem;
@@ -52,11 +57,40 @@
 }
 
 @include tablet {
-  .experience-container {
+  .education-container {
     padding: 1.5rem;
 
     .main-title {
-      font-size: 1.5rem;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .education-list {
+      .education-item {
+        flex-direction: column;
+
+        .education-header {
+          width: 100%;
+          font-size: 1rem;
+        }
+
+        .education-description {
+          margin-left: 0;
+          width: 100%;
+
+          .title {
+            font-size: 1rem;
+          }
+
+          .summary {
+            font-size: 0.9rem;
+          }
+        }
+      }
     }
   }
 }

@@ -18,7 +18,7 @@ const EducationContent = ({education}: { education: Education[] }) => {
                 </div>
                 <div className={cx('education-description')}>
                   <h3 className={cx('title')}>{edu.edu}</h3>
-                  <p className={cx('summary')}>{edu.summary}</p>
+                  {edu.summary && <p className={cx('summary')}>{edu.summary}</p>}
                 </div>
               </div>
           ))}

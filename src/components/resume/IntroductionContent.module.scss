@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-bottom: 1rem;
 
   .main-title {
     margin-bottom: 1.5rem;
@@ -13,7 +14,6 @@
       font-size: 1.8rem;
       font-weight: 700;
       color: $primary-color-blue;
-      margin-bottom: 0.5rem;
     }
   }
 
@@ -31,6 +31,7 @@
       margin-bottom: 0.5rem;
       line-height: 1.7;
       word-wrap: break-word;
+      word-break: keep-all;
     }
 
     .highlight {
@@ -52,5 +53,24 @@
     text-align: center;
     padding: 1rem;
     gap: 1rem;
+
+    .main-title {
+      width: 100%;
+      margin-bottom: 1rem;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .description {
+      .summary {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
   }
 }
