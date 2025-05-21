@@ -24,7 +24,9 @@ const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
   return (
       <div className={cx('experience-container')}>
         <div className={cx('main-item')}>
-          <h2 className={cx('main-title')}>Experience</h2>
+          <div className={cx('main-title')}>
+            <p>Experience</p>
+          </div>
           <span className={cx('tag')}>총 경력: {years}년 {months}개월</span>
         </div>
         {experiences.map((exp, idx) => (

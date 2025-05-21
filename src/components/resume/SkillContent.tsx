@@ -20,7 +20,9 @@ const SkillSection = ({title, items}: { title: string; items: string[] }) => (
 const SkillContent = ({skills}: { skills: Skills }) => {
   return (
       <div className={cx('skill-container')}>
-        <h2 className={cx('main-title')}>SKILL</h2>
+        <div className={cx('main-title')}>
+          <p>Skill</p>
+        </div>
 
         <div className={cx('section-summary')}>
           {skills.summary.map((item) => (
