@@ -15,7 +15,7 @@ welcome();
 
 const CodeGround = () => {
   return (
-      <div>
+      <div className={"m-8"}>
         <CodeBlock code={codeSample} filename="welcome.js"/>
       </div>
   );
