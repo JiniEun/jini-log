@@ -24,7 +24,7 @@ export const experiences: Experience[] = [
           '롯데마트 OSP 전환에 따라 변경된 상품번호 기반으로 리뷰 데이터 이관 처리.',
           '기존 리뷰 노출 영역 수정',
         ],
-        techStack: ['Java', 'SpringBoot', 'OpenSearch']
+        techStack: ['Java', 'SpringBoot', 'OpenSearch', 'Spring Batch']
       },
       {
         title: '상품 이미지, 기술서 실시간 처리 서버 내재화',
