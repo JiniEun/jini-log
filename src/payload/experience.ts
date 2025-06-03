@@ -16,6 +16,17 @@ export const experiences: Experience[] = [
     location: '서울',
     projects: [
       {
+        title: '마트몰 OSP 전환 대응',
+        startDate: '2025.03',
+        endDate: '2025.01',
+        summary: '롯데마트가 롯데ON에서 이탈하며, 자체 몰(OSP)로 이전하게 된 이슈에 따라, 기존 롯데온 상품상세에서 노출되던 리뷰 및 관련 UI 영역을 자체 마트몰에 맞게 이관 및 수정하는 작업을 수행했습니다.',
+        description: [
+          '롯데마트 OSP 전환에 따라 변경된 상품번호 기반으로 리뷰 데이터 이관 처리.',
+          '기존 리뷰 노출 영역 수정',
+        ],
+        techStack: ['Java', 'SpringBoot', 'OpenSearch']
+      },
+      {
         title: '상품 이미지, 기술서 실시간 처리 서버 내재화',
         startDate: '2024.06',
         endDate: '2024.12',
