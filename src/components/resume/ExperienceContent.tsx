@@ -40,17 +40,14 @@ function normalizePeriod(start?: string, end?: string) {
   const s = new Date(start);
   const e = end ? new Date(end) : null;
 
-  // 뒤집힌 경우 보정
-  if (e && s > e) {
-    const tmp = new Date(s);
-    (s as any) = e;
-    (e as any) = tmp;
-  }
+  // 재할당 없이 보정된 복사본 생성
+  const [startDate, endDate] =
+      e && s > e ? [e, s] : [s, e];
 
   const fmt = (d: Date) =>
       `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
 
-  return `${fmt(s)} ~ ${e ? fmt(e) : '진행 중'}`;
+  return `${fmt(startDate)} ~ ${endDate ? fmt(endDate) : '진행 중'}`;
 }
 
 const EXPERIENCE_START_ISO = '2022-12-19';
