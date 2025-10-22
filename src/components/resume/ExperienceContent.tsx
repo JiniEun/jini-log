@@ -71,12 +71,22 @@ const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
             <p>Experience</p>
           </div>
           {/* 마운트 전에는 표시 지연(깜빡임/불일치 방지) */}
-          {career ? (
-              <span className={cx('tag')}>총 경력: {career.years}년 {career.months}개월</span>
-          ) : (
-              <span className={cx('tag')} aria-hidden>총 경력 계산중...</span>
-          )}
+          <div className={cx('sub-title')}>
+            {career ? (
+                <span className={cx('tag')}>총 경력: {career.years}년 {career.months}개월</span>
+            ) : (
+                <span className={cx('tag')} aria-hidden>총 경력 계산중...</span>
+            )}
+          </div>
         </div>
+        <p className={cx('star-hint')}>
+          <small>
+            <span className={cx('s')}>S</span>(문제),
+            <span className={cx('t')}> T</span>(과제),
+            <span className={cx('a')}> A</span>(행동),
+            <span className={cx('r')}> R</span>(결과)
+          </small>
+        </p>
         {experiences.map((exp, idx) => (
             <div key={keyOf(exp, idx)} className={cx('experience-item')}>
               <div className={cx('experience-header')}>
