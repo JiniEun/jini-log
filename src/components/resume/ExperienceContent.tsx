@@ -1,25 +1,71 @@
+'use client';
+
+import {useEffect, useMemo, useState} from 'react';
 import styles from './ExperienceContent.module.scss';
 import classNames from 'classnames/bind';
 import {Experience} from '@/payload/types';
 
 const cx = classNames.bind(styles);
 
-const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
-  const experienceStartDate = "2022-12-19";
-  const start = new Date(experienceStartDate);
-  const now = new Date();
+// --- 날짜 유틸: KST(UTC+9) 기준으로 날짜 비교되게 정규화 ---
+function toKSTDateOnly(d: Date) {
+  // KST는 서머타임 없음 +9h 고정
+  const t = new Date(d.getTime() + 9 * 60 * 60 * 1000);
+  // 연/월/일만 유지한 로컬 Date 객체로 변환
+  return new Date(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate());
+}
 
-  let careerInMonths =
-      (now.getFullYear() - start.getFullYear()) * 12 +
-      (now.getMonth() - start.getMonth());
+function calcCareerKST(startISO: string, now: Date = new Date()) {
+  const start = toKSTDateOnly(new Date(startISO));
+  const cur = toKSTDateOnly(now);
 
-// 일까지 비교해서 더 정확하게 하고 싶다면:
-  if (now.getDate() < start.getDate()) {
-    // 이번 달이 아직 덜 찼으면 -1
-    careerInMonths--;
+  let months =
+      (cur.getFullYear() - start.getFullYear()) * 12 +
+      (cur.getMonth() - start.getMonth());
+
+  if (cur.getDate() < start.getDate()) months--;
+
+  // 음수 방지 (미래 시작일 등 엣지케이스)
+  if (months < 0) months = 0;
+
+  const years = Math.floor(months / 12);
+  const restMonths = months % 12;
+
+  return { years, months: restMonths, totalMonths: months };
+}
+
+// (선택) 프로젝트 기간 유효성 간단 보정 + 표준화 포맷
+function normalizePeriod(start?: string, end?: string) {
+  if (!start) return '';
+  const s = new Date(start);
+  const e = end ? new Date(end) : null;
+
+  // 뒤집힌 경우 보정
+  if (e && s > e) {
+    const tmp = new Date(s);
+    (s as any) = e;
+    (e as any) = tmp;
   }
-  const years = Math.floor(careerInMonths / 12);
-  const months = careerInMonths % 12;
+
+  const fmt = (d: Date) =>
+      `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
+
+  return `${fmt(s)} ~ ${e ? fmt(e) : '진행 중'}`;
+}
+
+const EXPERIENCE_START_ISO = '2022-12-19';
+
+const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
+  // 총 경력은 SSR 시점이 아니라, 클라이언트 마운트 후 계산해서 hydration mismatch 방지
+  const [career, setCareer] = useState<{years: number; months: number} | null>(null);
+
+  useEffect(() => {
+    setCareer(calcCareerKST(EXPERIENCE_START_ISO));
+  }, []);
+
+  // (권장) key를 index 대신 조합키로
+  const keyOf = (exp: Experience, idx: number) =>
+      `${exp.company ?? 'unknown'}-${exp.position ?? 'na'}-${idx}`;
 
   return (
       <div className={cx('experience-container')}>
@@ -27,10 +73,15 @@ const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
           <div className={cx('main-title')}>
             <p>Experience</p>
           </div>
-          <span className={cx('tag')}>총 경력: {years}년 {months}개월</span>
+          {/* 마운트 전에는 표시 지연(깜빡임/불일치 방지) */}
+          {career ? (
+              <span className={cx('tag')}>총 경력: {career.years}년 {career.months}개월</span>
+          ) : (
+              <span className={cx('tag')} aria-hidden>총 경력 계산중...</span>
+          )}
         </div>
         {experiences.map((exp, idx) => (
-            <div key={idx} className={cx('experience-item')}>
+            <div key={keyOf(exp, idx)} className={cx('experience-item')}>
               <div className={cx('experience-header')}>
                 <h3 className={cx('company')}>{exp.company}</h3>
                 <p className={cx('company-summary')}>{exp.companySummary}</p>
@@ -49,26 +100,30 @@ const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
                   <div>
                     <span className={cx('project-list-title')}>Projects</span>
                   </div>
-                  {exp.projects.map((proj, pIdx) => (
-                      <div key={pIdx} className={cx('project-item')}>
-                        <h4 className={cx('project-title')}>{proj.title}</h4>
-                        <p className={cx('project-date')}>
-                          {proj.startDate} ~ {proj.endDate ?? '진행 중'}
-                        </p>
+                  {exp.projects?.map((proj, pIdx) => {
+                    const period = normalizePeriod(proj.startDate, proj.endDate);
 
-                        {proj.techStack && proj.techStack.length > 0 && (
-                            <div className={cx('tech-stack')}>
-                              <span>기술 스택:</span> {proj.techStack.join(', ')}
-                            </div>
-                        )}
+                    return (
+                        <div key={`${proj.title}-${pIdx}`} className={cx('project-item')}>
+                          <h4 className={cx('project-title')}>{proj.title}</h4>
+                          <p className={cx('project-date')}>
+                            {period || `${proj.startDate ?? ''} ~ ${proj.endDate ?? '진행 중'}`}
+                          </p>
 
-                        <ul className={cx('project-description')}>
-                          {proj.description.map((desc, dIdx) => (
-                              <li key={dIdx}>{desc}</li>
-                          ))}
-                        </ul>
-                      </div>
-                  ))}
+                          {!!proj.techStack?.length && (
+                              <div className={cx('tech-stack')}>
+                                <span>기술 스택:</span> {proj.techStack.join(', ')}
+                              </div>
+                          )}
+
+                          <ul className={cx('project-description')}>
+                            {proj.description?.map((desc, dIdx) => (
+                                <li key={dIdx}>{desc}</li>
+                            ))}
+                          </ul>
+                        </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -37,3 +37,12 @@ My personal website ✨
 └── next.config.js
 
 ```
+
+### 세팅 방법
+```
+# 의존성 설치
+pnpm install
+
+# 개발 서버 실행
+pnpm dev
+```

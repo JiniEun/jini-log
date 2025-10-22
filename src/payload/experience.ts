@@ -17,8 +17,8 @@ export const experiences: Experience[] = [
     projects: [
       {
         title: '마트몰 OSP 전환 대응',
-        startDate: '2025.03',
-        endDate: '2025.01',
+        startDate: '2025.01',
+        endDate: '2025.03',
         summary: '롯데마트가 롯데ON에서 이탈하며, 자체 몰(OSP)로 이전하게 된 이슈에 따라, 기존 롯데온 상품상세에서 노출되던 리뷰 및 관련 UI 영역을 자체 마트몰에 맞게 이관 및 수정하는 작업을 수행했습니다.',
         description: [
           '롯데마트 OSP 전환에 따라 변경된 상품번호 기반으로 리뷰 데이터 이관 처리.',
@@ -41,8 +41,8 @@ export const experiences: Experience[] = [
       },
       {
         title: '버티컬 UI/서버 개선 및 신규 서비스 대응과 운영 관리',
-        startDate: '2023',
-        endDate: '2024',
+        startDate: '2023.04',
+        endDate: '2023.08',
         summary: '버티컬 UI 및 서버 개선을 통해 신규 서비스에 대한 대응력을 높이고, 사용자 경험을 향상시켰습니다.',
         description: [
           '상품 상세 상단 UI 개편 및 버티컬 헤더 구조 설계',
@@ -69,7 +69,7 @@ export const experiences: Experience[] = [
       {
         title: '리뷰/QnA 안정화 및 검색 성능 개선',
         startDate: '2023.02',
-        endDate: '2023.07',
+        endDate: '2023.12',
         summary: '리뷰 및 QnA 도메인 안정화 및 성능 개선을 통해 사용자 경험을 향상시켰습니다.',
         description: [
           'Elasticsearch 지연 현상 모니터링 및 로직 개선',
@@ -77,7 +77,7 @@ export const experiences: Experience[] = [
           'heic 확장자 이미지 미노출 문제 해결 및 기등록 데이터 일괄 배치 처리',
           '스크린샷 등록 제어 기능 도입 → "상품과 무관한 사진" 신고 건 66% 감소'
         ],
-        techStack: ['Java', 'Spring Boot', 'Elasticsearch', 'Vue.js']
+        techStack: ['Java', 'Spring Boot', 'Spring Batch', 'Elasticsearch', 'Vue.js']
       }
     ]
   },
