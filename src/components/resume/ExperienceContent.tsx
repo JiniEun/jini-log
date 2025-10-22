@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useMemo, useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from './ExperienceContent.module.scss';
 import classNames from 'classnames/bind';
 import {Experience} from '@/payload/types';
