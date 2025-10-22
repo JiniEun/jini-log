@@ -1,10 +1,10 @@
 // payload/skills.ts
 export const skills = {
   production: {
-    languages: ['Java', 'Python', 'JavaScript', 'Typescript'],
-    frameworks: ['Spring Boot', 'Node.js', 'Vue.js'],
+    languages: ['Java - Spring Boot 기반 API 개발 및 배치 처리', 'Python - 데이터 처리·자동화 등 일회성 스크립트 작성 및 업무 보조용으로 활용', 'JavaScript - Vue.js 관리 및 UI 개발', 'Typescript - WS Lambda 기반 서버리스 프로젝트에서 로직 구현 및 유지보수'],
+    frameworks: ['Spring Boot - REST API, AOP 로깅, 배치 처리', 'Node.js - 서버리스 Lambda 백엔드 구축', 'Vue.js - 상품 상세 UI 개발 및 유지보수'],
     tools: ['IntelliJ', 'VSCode', 'Git', 'Github', 'Gitlab', 'Jira', 'Confluence'],
-    infrastructure: ['AWS', 'Docker', 'Kubernetes', 'nginx', 'Redis', 'MySQL', 'ElasticSearch'],
+    infrastructure: ['AWS (EC2, S3, Lambda, CloudFront) - 서버리스 아키텍처 운영 및 비용 절감', 'MySQL / Redis / Elasticsearch – 서비스 특성에 맞는 개발', 'Grafana / Whatap / Kibana – 모니터링 도구를 통해 시스템 상태를 점검하고, 장애 알림을 활용해 문제 원인 분석과 대응 과정에 기여'],
   },
   hobby: {
     languages: ['Kotlin'],
