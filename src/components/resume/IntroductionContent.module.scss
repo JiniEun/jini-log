@@ -74,3 +74,23 @@
     }
   }
 }
+
+@include desktop {
+  .introduction-container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+
+    .main-title {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      width: 100%;
+      .summary {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

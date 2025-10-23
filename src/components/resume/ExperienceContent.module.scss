@@ -7,6 +7,7 @@
 
   .main-item {
     display: flex;
+    align-items: center;
 
     .main-title {
       margin-right: 2rem;
@@ -87,7 +88,7 @@
       }
 
       .location {
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: #666;
         margin: 1rem 0;
       }
@@ -99,7 +100,7 @@
       }
 
       .company-duration {
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: #999;
         margin-top: 0.25rem;
       }
@@ -144,7 +145,7 @@
           }
 
           .project-date {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #444;
             margin-bottom: 0.75rem;
           }
@@ -164,7 +165,7 @@
           }
 
           .tech-stack {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #aaa;
             margin-bottom: 1.5rem;
 
@@ -238,7 +239,7 @@
             }
 
             .project-description {
-              font-size: 0.9rem;
+              font-size: 1rem;
             }
           }
         }
