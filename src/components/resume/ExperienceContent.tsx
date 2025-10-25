@@ -34,22 +34,6 @@ function calcCareerKST(startISO: string, now: Date = new Date()) {
   return { years, months: restMonths, totalMonths: months };
 }
 
-// (선택) 프로젝트 기간 유효성 간단 보정 + 표준화 포맷
-function normalizePeriod(start?: string, end?: string) {
-  if (!start) return '';
-  const s = new Date(start);
-  const e = end ? new Date(end) : null;
-
-  // 재할당 없이 보정된 복사본 생성
-  const [startDate, endDate] =
-      e && s > e ? [e, s] : [s, e];
-
-  const fmt = (d: Date) =>
-      `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
-
-  return `${fmt(startDate)} ~ ${endDate ? fmt(endDate) : '진행 중'}`;
-}
-
 const EXPERIENCE_START_ISO = '2022-12-19';
 
 const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
@@ -108,13 +92,12 @@ const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
                     <span className={cx('project-list-title')}>Projects</span>
                   </div>
                   {exp.projects?.map((proj, pIdx) => {
-                    const period = normalizePeriod(proj.startDate, proj.endDate);
 
                     return (
                         <div key={`${proj.title}-${pIdx}`} className={cx('project-item')}>
                           <h4 className={cx('project-title')}>{proj.title}</h4>
                           <p className={cx('project-date')}>
-                            {period || `${proj.startDate ?? ''} ~ ${proj.endDate ?? '진행 중'}`}
+                            {`${proj.startDate ?? ''} ~ ${proj.endDate ?? '진행 중'}`}
                           </p>
 
                           {!!proj.techStack?.length && (

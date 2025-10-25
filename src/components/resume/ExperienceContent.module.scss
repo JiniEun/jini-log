@@ -193,6 +193,8 @@
 
       .main-title {
         width: 100%;
+        margin-left: 0;
+        margin-right: 0;
         margin-bottom: 0.5rem;
 
         p {
@@ -200,9 +202,11 @@
         }
       }
 
-      .tag {
-        margin-left: 0;
-        padding: 0 0 1rem;
+      .sub-title {
+        .tag {
+          margin-left: 0;
+          padding: 0 0 1rem;
+        }
       }
     }
 
