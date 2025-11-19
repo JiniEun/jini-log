@@ -53,6 +53,15 @@ export interface Experience {
     description: string[];
     techStack?: string[];
   }[];
+  stability: {
+    title: string;
+    year: number;
+    description?: string[];
+    subUnits?: {
+      title: string;
+      description: string[];
+    }[];
+  }[];
 }
 
 export interface Education {

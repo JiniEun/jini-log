@@ -31,14 +31,39 @@ function calcCareerKST(startISO: string, now: Date = new Date()) {
   const years = Math.floor(months / 12);
   const restMonths = months % 12;
 
-  return { years, months: restMonths, totalMonths: months };
+  return {years, months: restMonths, totalMonths: months};
 }
 
 const EXPERIENCE_START_ISO = '2022-12-19';
 
+const linkify = (text: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  // 문자열.split + map 조합으로 React 요소를 생성
+  const parts = text.split(urlRegex);
+
+  return parts.map((part, i) => {
+    if (urlRegex.test(part)) {
+      return (
+          <a
+              key={i}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{color: '#4fc3f7', textDecoration: 'underline'}}
+          >
+            {part}
+          </a>
+      );
+    }
+    return part;
+  });
+};
+
+
 const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
   // 총 경력은 SSR 시점이 아니라, 클라이언트 마운트 후 계산해서 hydration mismatch 방지
-  const [career, setCareer] = useState<{years: number; months: number} | null>(null);
+  const [career, setCareer] = useState<{ years: number; months: number } | null>(null);
 
   useEffect(() => {
     setCareer(calcCareerKST(EXPERIENCE_START_ISO));
@@ -114,6 +139,54 @@ const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
                         </div>
                     );
                   })}
+                </div>
+                <div className={cx('stability-section')}>
+                  <div className={cx('stability-list')}>
+                    {exp.stability.map((item, sIdx) => (
+                        <div key={`${item.year}-${sIdx}`} className={cx('stability-item')}>
+                          {/* 상단 헤더: 타이틀 + 연도 */}
+                          <div className={cx('stability-header')}>
+                            <h3 className={cx('stability-title')}>{item.title}</h3>
+                            <span className={cx('stability-year')}>{item.year}</span>
+                          </div>
+
+                          {/* 바로 description 배열만 있는 케이스 */}
+                          {!!item.description?.length && (
+                              <ul className={cx('stability-description')}>
+                                {item.description.map((desc, dIdx) => (
+                                    <li key={dIdx} className={cx('stability-description-item')}>
+                                      {linkify(desc)}
+                                    </li>
+                                ))}
+                              </ul>
+                          )}
+
+                          {/* subUnits가 있는 케이스 */}
+                          {!!item.subUnits?.length && (
+                              <div className={cx('stability-subunit-list')}>
+                                {item.subUnits.map((unit, uIdx) => (
+                                    <div
+                                        key={`${item.year}-${unit.title}-${uIdx}`}
+                                        className={cx('stability-subunit')}
+                                    >
+                                      <h4 className={cx('stability-subunit-title')}>{unit.title}</h4>
+                                      <ul className={cx('stability-subunit-description')}>
+                                        {unit.description?.map((desc, dIdx) => (
+                                            <li
+                                                key={dIdx}
+                                                className={cx('stability-subunit-description-item')}
+                                            >
+                                              {linkify(desc)}
+                                            </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                ))}
+                              </div>
+                          )}
+                        </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

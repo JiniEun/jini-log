@@ -6,7 +6,7 @@ const profile = {
   job: 'Software engineer',
   contact: {
     phone: 'Please contact me by email',
-    email: 'dev.ejin98@gmail.com',
+    email: 'julietjin94@gmail.com',
     github: 'https://github.com/JiniEun',
     blog: 'https://jules-jc.tistory.com/',
   },
