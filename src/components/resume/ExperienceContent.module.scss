@@ -178,6 +178,92 @@
         }
       }
     }
+
+    // -------------------------
+    // Stability Section
+    // -------------------------
+    .stability-section {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed #ddd;
+
+      .stability-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .stability-item {
+        padding-left: 1rem;
+        border-left: 1px solid $primary-color-skyblue;
+        margin: 1.5rem 0;
+      }
+
+      .stability-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+
+        .stability-title {
+          padding-top: 0.5rem;
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #444;
+          margin-bottom: 0.75rem;
+        }
+
+        .stability-year {
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: $primary-color-skyblue;
+        }
+      }
+
+      // description만 있는 케이스
+      .stability-description {
+        padding-left: 1.2rem;
+        font-size: 1rem;
+        color: #444;
+
+        .stability-description-item {
+          list-style-type: disc;
+          margin-bottom: 0.4rem;
+          line-height: 1.5;
+        }
+      }
+
+      // subUnits 리스트
+      .stability-subunit-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 0.75rem;
+      }
+
+      .stability-subunit {
+        padding: 0.75rem 0 0 0.75rem;
+        border-left: 2px solid rgba($primary-color-skyblue, 0.6);
+      }
+
+      .stability-subunit-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 0.6rem;
+      }
+
+      .stability-subunit-description {
+        padding-left: 1.2rem;
+        font-size: 0.95rem;
+
+        .stability-subunit-description-item {
+          list-style-type: square;
+          margin-bottom: 0.35rem;
+          color: #666;
+          line-height: 1.5;
+        }
+      }
+    }
   }
 }
 
@@ -247,6 +333,47 @@
               font-size: 1rem;
             }
           }
+        }
+      }
+
+      .stability-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+
+        .stability-item {
+          padding-left: 0.5rem;
+          border-left-width: 1px;
+        }
+
+        .stability-header {
+          flex-direction: row;
+          justify-content: space-between;
+
+          .stability-title {
+            font-size: 1rem;
+          }
+
+          .stability-year {
+            font-size: 0.9rem;
+          }
+        }
+
+        .stability-description {
+          padding-left: 1rem;
+          font-size: 1rem;
+        }
+
+        .stability-subunit {
+          padding-left: 0.5rem;
+        }
+
+        .stability-subunit-title {
+          font-size: 0.95rem;
+        }
+
+        .stability-subunit-description {
+          padding-left: 1rem;
+          font-size: 0.9rem;
         }
       }
     }
