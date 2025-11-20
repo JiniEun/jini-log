@@ -7,7 +7,6 @@
 
   .main-item {
     display: flex;
-    align-items: center;
 
     .main-title {
       margin-right: 2rem;
@@ -37,27 +36,6 @@
         text-decoration-color: #4fc3f7;
         text-decoration-thickness: 2px;
         text-decoration-line: underline;
-      }
-    }
-  }
-
-  .star-hint {
-    color: #888;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.02em;
-    font-weight: 400;
-    font-style: italic;
-
-    .s, .t, .a, .r {
-      font-weight: 600;
-      color: #aaa;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      color: #bbb;
-      .s, .t, .a, .r {
-        color: #ccc;
       }
     }
   }
@@ -271,11 +249,12 @@
 @include tablet {
   .experience-container {
     padding: 1rem;
-    align-items: center;
     text-align: center;
 
     .main-item {
       flex-direction: column;
+      text-align: center;
+      align-items: center;
 
       .main-title {
         width: 100%;
@@ -289,7 +268,12 @@
       }
 
       .sub-title {
+        width: 100%;
+
         .tag {
+          text-align: center;
+          align-items: center;
+          justify-content: center;
           margin-left: 0;
           padding: 0 0 1rem;
         }
@@ -298,6 +282,8 @@
 
     .experience-item {
       flex-direction: column;
+      width: 100%;
+      max-width: 100%;
 
       .experience-header {
         width: 100%;

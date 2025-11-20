@@ -1,4 +1,8 @@
 import Tag from "@components/tag/Tag";
+import classNames from "classnames/bind";
+import style from "@components/home/HomeContent.module.scss";
+
+const cx = classNames.bind(style);
 
 const tags = [
   // 지속 가능한 개발과 성장에 관심이 많은
@@ -31,25 +35,25 @@ const selectedTags = ["매일 조금씩 성장 중", "이슈 해결에 진심인
 const HomeContent = () => {
 
   return (
-      <div className="min-h-screen flex flex-col lg:flex-row items-center justify-around p-8 gap-8">
+      <div className={cx('home-container', 'min-h-screen', 'flex', 'flex-col', 'lg:flex-row', 'items-center', 'justify-around', 'p-8', 'gap-8')}>
         {/* 왼쪽 소개 텍스트 */}
-        <div className="max-w-sm text-center lg:text-left mr-16">
-          <h1 className="text-3xl lg:text-4xl font-semibold leading-tight text-[#80C4E9]">
-            사람을 위한 기술,<br/>
-            의미 있는 결과물을 위해 <br/>
-            매일 조금씩 성장하고 있습니다.
-          </h1>
+        <div className={cx('main-title', 'max-w-sm', 'lg:text-left', 'mr-16')}>
+            <h1 className={cx('text-3xl', 'lg:text-4xl', 'font-semibold', 'leading-tight', 'text-[#80C4E9]')}>
+              사람을 위한 기술,<br/>
+              의미 있는 결과물을 위해 <br/>
+              매일 조금씩 성장하고 있습니다.
+            </h1>
+          </div>
+
+          {/* 오른쪽 태그 영역 */}
+          <div className={cx('block', 'text-right', 'w-full', 'px-4')}>
+            {tags.map((tag) => (
+                <Tag key={tag} selected={selectedTags.includes(tag)}>{tag}</Tag>
+            ))}
+          </div>
+
         </div>
+        );
+        };
 
-        {/* 오른쪽 태그 영역 */}
-        <div className="text-right w-full px-4">
-          {tags.map((tag) => (
-              <Tag key={tag} selected={selectedTags.includes(tag)}>{tag}</Tag>
-          ))}
-        </div>
-
-      </div>
-  );
-};
-
-export default HomeContent;
+        export default HomeContent;
