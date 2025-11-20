@@ -88,14 +88,6 @@ const ExperienceContent = ({experiences}: { experiences: Experience[] }) => {
             )}
           </div>
         </div>
-        <p className={cx('star-hint')}>
-          <small>
-            <span className={cx('s')}>S</span>(문제),
-            <span className={cx('t')}> T</span>(과제),
-            <span className={cx('a')}> A</span>(행동),
-            <span className={cx('r')}> R</span>(결과)
-          </small>
-        </p>
         {experiences.map((exp, idx) => (
             <div key={keyOf(exp, idx)} className={cx('experience-item')}>
               <div className={cx('experience-header')}>

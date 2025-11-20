@@ -1,9 +1,16 @@
 // HomeContent.module.scss
-.container {
-  padding: 44px 44px;
+.home-container {
+  margin: 4rem 2rem 2rem;
+  padding: 2rem;
   font-family: "Space Grotesk", sans-serif;
   color: $primary-color-skyblue;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
+  .main-title {
+    word-break: keep-all;
+  }
   .profile {
     display: flex;
     margin: 12px;
@@ -26,21 +33,19 @@
       }
     }
   }
+}
 
-  .title {
-    font-size: 22px;
-    font-weight: bold;
-    font-optical-sizing: auto;
-    font-style: normal;
-    padding: 28px 0 32px;
-  }
+@include tablet {
+  .home-container {
 
-  .description {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-    font-size: 18px;
-    font-optical-sizing: auto;
-    font-style: normal;
+    .main-title {
+      margin-right: 0;
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .block {
+      text-align: center;
+    }
   }
 }
